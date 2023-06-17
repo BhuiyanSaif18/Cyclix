@@ -187,8 +187,8 @@
     </div>
     <div class="mt-24">
       <button *ngIf="stepper && stepper.selectedIndex !== 4" class="click-next" mat-button (click)="clickNext()">
-        Next step
-        <!-- <mat-icon>home</mat-icon> -->
+        <span>Next step</span>
+        <mat-icon>arrow_downward </mat-icon>
       </button>
       <button *ngIf="stepper && stepper.selectedIndex === 4" mat-button class="submit-button" (click)="onSubmit()">
         Servicedaten hochladen <br>und Angebote erhalten
