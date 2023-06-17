@@ -1,0 +1,17 @@
+<header>
+  <nav
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+  >
+    <div class="container">
+      <a class="navbar-brand" [routerLink]="['/']">Cyclix</a>
+    </div>
+
+    <mat-form-field>
+      <mat-select [(ngModel)]="selectedLanguage" (selectionChange)="onLanguageChange()">
+        <mat-option value="en">English</mat-option>
+        <mat-option value="de">Dutch</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </nav>
+</header>
