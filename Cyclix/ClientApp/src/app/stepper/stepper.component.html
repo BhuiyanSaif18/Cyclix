@@ -152,32 +152,39 @@
         <mat-card class="mat-card-generic">
           <span class="stepper-5-address-info mb-24">Sag uns noch kurz etwas über dich:</span>
           <form class="stepper-5-address-form" [formGroup]="addressFormGroup">
-            <div class="stepper-5-address-form-left">
-              <mat-form-field appearance="outline">
-                <input matInput formControlName="addressLine1" placeholder="Vorname">
+            <div class="stepper-5-address-form-rows">
+              <mat-form-field class="w-50-p" appearance="outline">
+                <input matInput formControlName="firstName" placeholder="Vorname">
               </mat-form-field>
-              <mat-form-field appearance="outline">
-                <input matInput formControlName="addressLine2" placeholder="Strasse">
-              </mat-form-field>
-              <mat-form-field appearance="outline">
-                <input matInput formControlName="city" placeholder="PLZ">
-              </mat-form-field>
-              <mat-form-field appearance="outline">
-                <input matInput formControlName="state" placeholder="E-mail">
+              <mat-form-field class="w-50-p" appearance="outline">
+                <input matInput formControlName="lastName" placeholder="Nachname">
               </mat-form-field>
             </div>
-            <div class="stepper-5-address-form-right">
-              <mat-form-field appearance="outline">
-                <input matInput formControlName="zipCode" placeholder="Nachname">
+
+            <div class="stepper-5-address-form-rows">
+              <mat-form-field class="w-50-p" appearance="outline">
+                <input matInput formControlName="street" placeholder="Strasse">
               </mat-form-field>
-              <mat-form-field appearance="outline">
-                <input matInput formControlName="country" placeholder="Nr">
+              <mat-form-field class="w-50-p" appearance="outline">
+                <input matInput formControlName="nr" placeholder="Nr">
               </mat-form-field>
-              <mat-form-field appearance="outline">
-                <input matInput formControlName="phone" placeholder="Ort">
+            </div>
+
+            <div class="stepper-5-address-form-rows">
+              <mat-form-field class="w-50-p" appearance="outline">
+                <input matInput formControlName="zipCode" placeholder="PLZ">
               </mat-form-field>
-              <mat-form-field appearance="outline">
-                <input matInput formControlName="email" placeholder="Telefon">
+              <mat-form-field class="w-50-p" appearance="outline">
+                <input matInput formControlName="city" placeholder="Ort">
+              </mat-form-field>
+            </div>
+
+            <div class="stepper-5-address-form-rows">
+              <mat-form-field class="w-50-p" appearance="outline">
+                <input matInput formControlName="email" placeholder="E-mail">
+              </mat-form-field>
+              <mat-form-field class="w-50-p" appearance="outline">
+                <input matInput formControlName="phone" placeholder="Telefon">
               </mat-form-field>
             </div>
           </form>

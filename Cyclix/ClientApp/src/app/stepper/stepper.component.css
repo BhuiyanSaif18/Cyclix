@@ -155,24 +155,17 @@
 
 .stepper-5-address-form{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 30px;
+  
+  .stepper-5-address-form-rows{
+    display: flex;
+    flex-direction: row;
+    gap:50px;
+    width: 100%;
+  }
 }
 
-.stepper-5-address-form-left{
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  width: 50%;
-  gap:"30px";
-}
-.stepper-5-address-form-right{
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  width: 50%;
-  gap:"30px";
-}
 
 .address-form-field-border {
   border: 2px solid #FF5E3A;
@@ -193,6 +186,11 @@
 .w-100-p{
   width: 100%;
 }
+
+.w-50-p{
+  width: 50%;
+}
+
 .mt-24{
   margin-top: 24px;
 }

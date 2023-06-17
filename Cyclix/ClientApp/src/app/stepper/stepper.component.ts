@@ -58,14 +58,14 @@ export class StepperComponent implements OnInit{
     });
 
     this.addressFormGroup = this.formBuilder.group({
-      addressLine1: [''],
-      addressLine2: [''],
+      firstName: [''],
+      lastName: [''],
+      street: [''],
+      nr: [''],
       city: [''],
-      state: [''],
       zipCode: [''],
-      country: [''],
-      phone: [''],
-      email: ['', [Validators.required, Validators.email]]
+      email: ['',  [Validators.required, Validators.email]],
+      phone: ['']
     });
 
   }
