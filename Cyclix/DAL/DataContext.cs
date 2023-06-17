@@ -1,4 +1,5 @@
-﻿using Cyclix.Models;
+﻿using Cyclix.Entities;
+using Cyclix.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Cyclix.DAL
@@ -10,6 +11,7 @@ namespace Cyclix.DAL
         }
         public DbSet<CycleType> CycleTypes { get; set; }
         public DbSet<CycleBrand> CycleBrands { get; set; }
+        public DbSet<RepairRequest> RepairRequests { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
