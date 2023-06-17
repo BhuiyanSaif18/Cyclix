@@ -1,6 +1,9 @@
 using Cyclix.Contracts;
 using Cyclix.DAL;
 using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+using Cyclix.MappingProfile;
+using Microsoft.AspNetCore.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,7 +18,8 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 builder.Services.AddScoped<ICycleBrandRepository, CycleBrandRepository>();
 builder.Services.AddScoped<ICycleTypeRepository, CycleTypeRepository>();
-
+builder.Services.AddScoped<IRepairRequestRepository, RepairRequestRepository>();
+builder.Services.AddAutoMapper(typeof(RepairRequestMappingProfile));
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
