@@ -13,7 +13,10 @@ import {map} from 'rxjs/operators';
 export class StepperComponent implements OnInit{
   @ViewChild(MatStepper) stepper!: MatStepper;
 
-  formGroup!: FormGroup;
+  cycleInfoFormGroup!: FormGroup;
+  servicePricingFormGroup!: FormGroup;
+  individualPartServiceFormGroup!: FormGroup;
+  cycleProblemDetailFormGroup!: FormGroup;
   addressFormGroup!: FormGroup;
 
   constructor(private formBuilder: FormBuilder) { }
@@ -23,12 +26,18 @@ export class StepperComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.formGroup = this.formBuilder.group({
+    this.cycleInfoFormGroup = this.formBuilder.group({
       dropdown1: [''],
       dropdown2: [''],
+    });
+
+    this.servicePricingFormGroup = this.formBuilder.group({
       radioOption: [''],
       checkbox1: [false],
       checkbox2: [false],
+    });
+
+    this.individualPartServiceFormGroup = this.formBuilder.group({
       checkbox3: [false],
       checkbox4: [false],
       checkbox5: [false],
@@ -41,6 +50,9 @@ export class StepperComponent implements OnInit{
       checkbox12: [false],
       checkbox13: [false],
       checkbox14: [false],
+    });
+
+    this.cycleProblemDetailFormGroup = this.formBuilder.group({
       textInput1: [''],
       textInput2: ['']
     });
@@ -55,12 +67,20 @@ export class StepperComponent implements OnInit{
       phone: [''],
       email: ['', [Validators.required, Validators.email]]
     });
+
   }
 
   onSubmit(): void {
-    if (this.formGroup.valid && this.addressFormGroup.valid) {
+    if (this.cycleInfoFormGroup.valid && 
+      this.servicePricingFormGroup.valid &&
+      this.individualPartServiceFormGroup.valid &&
+      this.cycleProblemDetailFormGroup.valid &&
+      this.addressFormGroup.valid) {
       console.log('Form submitted!');
-      console.log('Form values:', this.formGroup.value);
+      console.log('cycleInfoFormGroup values:', this.cycleInfoFormGroup.value);
+      console.log('servicePricingFormGroup values:', this.servicePricingFormGroup.value);
+      console.log('individualPartServiceFormGroup values:', this.individualPartServiceFormGroup.value);
+      console.log('cycleProblemDetailFormGroup values:', this.cycleProblemDetailFormGroup.value);
       console.log('Address form values:', this.addressFormGroup.value);
     }
   }

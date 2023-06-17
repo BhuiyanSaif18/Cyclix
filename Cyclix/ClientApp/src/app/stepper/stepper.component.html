@@ -23,7 +23,7 @@
           <span class="stepper-1-header-info">{{'TELL_US_SOMETHING_ABOUT_YOUR_BIKE' | translate}}</span>
           <mat-card class="mat-card-generic">
             <span class="stepper-1-warning-message">{{ 'FIELDS_MARKED_WITH_ARE_REQUIRED' | translate}}</span>
-            <form class="stepper-1-form" [formGroup]="formGroup">
+            <form class="stepper-1-form" [formGroup]="cycleInfoFormGroup">
               <div>
                 <p>{{'DO_YOU_KNOW_YOUR_BIKE_TYPE' | translate}}</p>
                 <mat-form-field>
@@ -59,7 +59,7 @@
           <span class="stepper-5-address-info mb-24">Möchtest du ein Standard Service Paket buchen?</span>
           <span class="stepper-1-warning-message mb-24">Falls du mit "Service Paketen" nichts anfangen kannst, findest du
             weiter unten eine Auswahlliste mit verschiedenen Service-Leistungen.</span>
-          <form class="service-package-pricing" [formGroup]="formGroup">
+          <form class="service-package-pricing" [formGroup]="servicePricingFormGroup">
             <mat-radio-group class="service-packages-form mb-28"  formControlName="radioOption">
 
               <div class="service-package-radio-container">
@@ -95,7 +95,7 @@
         <mat-card class="mat-card-generic">
           <span class="stepper-5-address-info mb-24">Möchtest du nur einzelne Services buchen?</span>
           <span class="stepper-1-warning-message">Eine Mehrfachauswahl ist möglich.</span>
-          <form class="stepper-3" [formGroup]="formGroup">
+          <form class="stepper-3" [formGroup]="individualPartServiceFormGroup">
             <div class="stepper-3-upper">
               <div class="stepper-3-address-form-left">
                 <mat-checkbox formControlName="checkbox4">Schlauch- und/oder Reifenwechsel</mat-checkbox>
@@ -131,7 +131,7 @@
         <mat-card class="mat-card-generic">
           <span class="stepper-5-address-info mb-24">Möchtest du das Problem an deinem Velo noch näher
             beschreiben?</span>
-          <form [formGroup]="formGroup">
+          <form [formGroup]="cycleProblemDetailFormGroup">
             <mat-form-field appearance="outline" class="w-100-p">
               <textarea matInput formControlName="textInput1"
                 placeholder="z.B. die Kette ist gerissen, ich habe einen Achter im Vorderrad."></textarea>
