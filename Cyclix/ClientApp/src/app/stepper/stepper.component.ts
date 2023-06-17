@@ -1,16 +1,15 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {BreakpointObserver} from '@angular/cdk/layout';
-import {MatStepper, StepperOrientation} from '@angular/material/stepper';
-import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatStepper } from '@angular/material/stepper';
+import { Subscription } from 'rxjs';
+import { StepperService } from './stepper.service';
 
 @Component({
   selector: 'app-stepper',
   templateUrl: './stepper.component.html',
-  styleUrls: ['./stepper.component.css']
+  styleUrls: ['./stepper.component.css'],
 })
-export class StepperComponent implements OnInit{
+export class StepperComponent implements OnInit {
   @ViewChild(MatStepper) stepper!: MatStepper;
 
   cycleInfoFormGroup!: FormGroup;
@@ -19,13 +18,20 @@ export class StepperComponent implements OnInit{
   cycleProblemDetailFormGroup!: FormGroup;
   addressFormGroup!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  subscriptions: Subscription[] = [];
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private stepperService: StepperService
+  ) {}
 
   clickNext(): void {
     this.stepper.next();
   }
 
   ngOnInit(): void {
+    this.getBikeType();
+    this.getBikeBrands();
     this.cycleInfoFormGroup = this.formBuilder.group({
       cycleType: [''],
       brandName: [''],
@@ -53,7 +59,7 @@ export class StepperComponent implements OnInit{
 
     this.cycleProblemDetailFormGroup = this.formBuilder.group({
       moreDetailedIssue: [''],
-      costEstimate: ['']
+      estimatedCost: [''],
     });
 
     this.addressFormGroup = this.formBuilder.group({
@@ -63,24 +69,51 @@ export class StepperComponent implements OnInit{
       nr: [''],
       city: [''],
       zipCode: [''],
-      email: ['',  [Validators.required, Validators.email]],
-      phone: ['']
+      email: ['', [Validators.required, Validators.email]],
+      phone: [''],
     });
-
+  }
+  getBikeBrands() {
+    const sub = this.stepperService.getBrands().subscribe((x) => {
+      console.log(x);
+    });
+    this.subscriptions.push(sub);
+  }
+  getBikeType() {
+    const sub = this.stepperService.getBikeType().subscribe((x) => {
+      console.log(x);
+    });
+    this.subscriptions.push(sub);
   }
 
   onSubmit(): void {
-    if (this.cycleInfoFormGroup.valid && 
+    if (
+      this.cycleInfoFormGroup.valid &&
       this.servicePricingFormGroup.valid &&
       this.individualPartServiceFormGroup.valid &&
       this.cycleProblemDetailFormGroup.valid &&
-      this.addressFormGroup.valid) {
+      this.addressFormGroup.valid
+    ) {
       console.log('Form submitted!');
       console.log('cycleInfoFormGroup values:', this.cycleInfoFormGroup.value);
-      console.log('servicePricingFormGroup values:', this.servicePricingFormGroup.value);
-      console.log('individualPartServiceFormGroup values:', this.individualPartServiceFormGroup.value);
-      console.log('cycleProblemDetailFormGroup values:', this.cycleProblemDetailFormGroup.value);
+      console.log(
+        'servicePricingFormGroup values:',
+        this.servicePricingFormGroup.value
+      );
+      console.log(
+        'individualPartServiceFormGroup values:',
+        this.individualPartServiceFormGroup.value
+      );
+      console.log(
+        'cycleProblemDetailFormGroup values:',
+        this.cycleProblemDetailFormGroup.value
+      );
       console.log('Address form values:', this.addressFormGroup.value);
+    }
+  }
+  ngOnDestroy(): void {
+    for (const subscription of this.subscriptions) {
+      subscription.unsubscribe();
     }
   }
 }
