@@ -27,34 +27,33 @@ export class StepperComponent implements OnInit{
 
   ngOnInit(): void {
     this.cycleInfoFormGroup = this.formBuilder.group({
-      dropdown1: [''],
-      dropdown2: [''],
+      cycleType: [''],
+      brandName: [''],
     });
 
     this.servicePricingFormGroup = this.formBuilder.group({
-      radioOption: [''],
-      checkbox1: [false],
-      checkbox2: [false],
+      servicePricingOption: [''],
+      skipServicePackage: [false],
+      isElectricCycle: [false],
     });
 
     this.individualPartServiceFormGroup = this.formBuilder.group({
-      checkbox3: [false],
-      checkbox4: [false],
-      checkbox5: [false],
-      checkbox6: [false],
-      checkbox7: [false],
-      checkbox8: [false],
-      checkbox9: [false],
-      checkbox10: [false],
-      checkbox11: [false],
-      checkbox12: [false],
-      checkbox13: [false],
-      checkbox14: [false],
+      tubeOrTire: [false],
+      wheelCentering: [false],
+      adjustingGears: [false],
+      adjectBreaks: [false],
+      changeBreakPads: [false],
+      suspension: [false],
+      damper: [false],
+      completeCleaning: [false],
+      lightCheck: [false],
+      functionCheck: [false],
+      batteryCheck: [false],
     });
 
     this.cycleProblemDetailFormGroup = this.formBuilder.group({
-      textInput1: [''],
-      textInput2: ['']
+      moreDetailedIssue: [''],
+      costEstimate: ['']
     });
 
     this.addressFormGroup = this.formBuilder.group({
