@@ -1,15 +1,15 @@
 <div class="stepper-container">
   <div class="stepper-content">
     <mat-vertical-stepper [disableRipple]="true">
-      <mat-step >
+      <mat-step>
       </mat-step>
-      <mat-step >
+      <mat-step>
       </mat-step>
-      <mat-step >
+      <mat-step>
       </mat-step>
-      <mat-step >
+      <mat-step>
       </mat-step>
-      <mat-step >
+      <mat-step>
       </mat-step>
     </mat-vertical-stepper>
   </div>
@@ -17,11 +17,11 @@
   <div class="step-content generic-stepper">
     <div>
       <ng-container *ngIf="stepper && stepper.selectedIndex === 0">
-        
+
         <!-- Content for Step 1 -->
         <div class="stepper-1-parent">
           <span class="stepper-1-header-info">{{'TELL_US_SOMETHING_ABOUT_YOUR_BIKE' | translate}}</span>
-          <mat-card >
+          <mat-card class="mat-card-generic">
             <span class="stepper-1-warning-message">{{ 'FIELDS_MARKED_WITH_ARE_REQUIRED' | translate}}</span>
             <form class="stepper-1-form" [formGroup]="formGroup">
               <div>
@@ -52,33 +52,47 @@
 
       </ng-container>
       <ng-container *ngIf="stepper && stepper.selectedIndex === 1">
-        
-  
+
+
         <!-- Content for Step 2 -->
-        <mat-card>
+        <mat-card class="mat-card-generic">
           <span class="stepper-5-address-info mb-24">Möchtest du ein Standard Service Paket buchen?</span>
-          <span class="stepper-1-warning-message">Falls du mit "Service Paketen" nichts anfangen kannst, findest du weiter unten eine Auswahlliste mit verschiedenen Service-Leistungen.</span>
-          <form [formGroup]="formGroup">
+          <span class="stepper-1-warning-message mb-24">Falls du mit "Service Paketen" nichts anfangen kannst, findest du
+            weiter unten eine Auswahlliste mit verschiedenen Service-Leistungen.</span>
+          <form class="service-package-pricing" [formGroup]="formGroup">
+            <mat-radio-group class="service-packages-form mb-28"  formControlName="radioOption">
+
+              <div class="service-package-radio-container">
+                <mat-card class="mat-card--serice-packages mb-28">Icon/ Illu</mat-card>
+                <span class="info-text mb-24">Check-Up, ca. 50 CHF</span>
+                <mat-radio-button value="option1"></mat-radio-button>
+              </div>
+
+              <div class="service-package-radio-container">
+                <mat-card class="mat-card--serice-packages mb-28">Icon/ Illu</mat-card>
+                <span class="info-text mb-24">Service klein, ca. 120 CHF</span>
+                <mat-radio-button value="option2"></mat-radio-button>
+              </div>
+
+              <div class="service-package-radio-container">
+                <mat-card class="mat-card--serice-packages mb-28">Icon/ Illu</mat-card>
+                <span class="info-text mb-24">CService gross, ca. 170 CHF</span>
+                <mat-radio-button value="option3"></mat-radio-button>
+              </div>
+
+            </mat-radio-group>
             <div>
-              <mat-radio-group formControlName="radioOption">
-                <mat-radio-button value="option1">Option 1</mat-radio-button>
-                <mat-radio-button value="option2">Option 2</mat-radio-button>
-                <mat-radio-button value="option3">Option 3</mat-radio-button>
-              </mat-radio-group>
-            </div>
-            <div>
-              <mat-checkbox formControlName="checkbox1">Checkbox 1</mat-checkbox>
-              <mat-checkbox formControlName="checkbox2">Checkbox 2</mat-checkbox>
-              <mat-checkbox formControlName="checkbox3">Checkbox 3</mat-checkbox>
+              <mat-checkbox class="info-text" formControlName="checkbox1">Kein Service Paket buchen</mat-checkbox>
+              <mat-checkbox  formControlName="checkbox2">Hat dein Velo einen Elektro Antrieb?</mat-checkbox>
             </div>
           </form>
         </mat-card>
-        
+
       </ng-container>
       <ng-container *ngIf="stepper && stepper.selectedIndex === 2">
-  
+
         <!-- Content for Step 3 -->
-        <mat-card >
+        <mat-card class="mat-card-generic">
           <span class="stepper-5-address-info mb-24">Möchtest du nur einzelne Services buchen?</span>
           <span class="stepper-1-warning-message">Eine Mehrfachauswahl ist möglich.</span>
           <form class="stepper-3" [formGroup]="formGroup">
@@ -91,7 +105,7 @@
                 <mat-checkbox formControlName="checkbox8">Bremsbeläge wechseln</mat-checkbox>
               </div>
               <div class="stepper-3-address-form-right">
-                
+
                 <mat-checkbox formControlName="checkbox9">Federgabel Service</mat-checkbox>
                 <mat-checkbox formControlName="checkbox10">Dämpfer Service</mat-checkbox>
                 <mat-checkbox formControlName="checkbox11">Fahrrad-Komplettreinigung</mat-checkbox>
@@ -109,17 +123,18 @@
             </div>
           </form>
         </mat-card>
-        
+
       </ng-container>
       <ng-container *ngIf="stepper && stepper.selectedIndex === 3">
-  
+
         <!-- Content for Step 4 -->
-        <mat-card>
-          <span class="stepper-5-address-info mb-24">Möchtest du das Problem an deinem Velo noch näher beschreiben?</span>
+        <mat-card class="mat-card-generic">
+          <span class="stepper-5-address-info mb-24">Möchtest du das Problem an deinem Velo noch näher
+            beschreiben?</span>
           <form [formGroup]="formGroup">
             <mat-form-field appearance="outline" class="w-100-p">
-              <textarea matInput formControlName="textInput1" 
-              placeholder="z.B. die Kette ist gerissen, ich habe einen Achter im Vorderrad."></textarea>
+              <textarea matInput formControlName="textInput1"
+                placeholder="z.B. die Kette ist gerissen, ich habe einen Achter im Vorderrad."></textarea>
             </mat-form-field>
             <div>
               <mat-form-field appearance="outline">
@@ -129,16 +144,16 @@
             </div>
           </form>
         </mat-card>
-        
+
       </ng-container>
       <ng-container *ngIf="stepper && stepper.selectedIndex === 4">
-  
+
         <!-- Content for Step 5 -->
-        <mat-card >
+        <mat-card class="mat-card-generic">
           <span class="stepper-5-address-info mb-24">Sag uns noch kurz etwas über dich:</span>
           <form class="stepper-5-address-form" [formGroup]="addressFormGroup">
             <div class="stepper-5-address-form-left">
-              <mat-form-field  appearance="outline" >
+              <mat-form-field appearance="outline">
                 <input matInput formControlName="addressLine1" placeholder="Vorname">
               </mat-form-field>
               <mat-form-field appearance="outline">
@@ -167,20 +182,18 @@
             </div>
           </form>
         </mat-card>
-        
+
       </ng-container>
     </div>
     <div class="mt-24">
-      <button *ngIf="stepper && stepper.selectedIndex !== 4"
-       class="click-next" mat-button (click)="clickNext()">
+      <button *ngIf="stepper && stepper.selectedIndex !== 4" class="click-next" mat-button (click)="clickNext()">
         Next step
-          <!-- <mat-icon>home</mat-icon> -->
+        <!-- <mat-icon>home</mat-icon> -->
       </button>
-      <button *ngIf="stepper && stepper.selectedIndex === 4" 
-       mat-button class="submit-button" (click)="onSubmit()">
+      <button *ngIf="stepper && stepper.selectedIndex === 4" mat-button class="submit-button" (click)="onSubmit()">
         Servicedaten hochladen <br>und Angebote erhalten
       </button>
     </div>
   </div>
-  
+
 </div>
