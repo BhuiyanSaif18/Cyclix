@@ -4,6 +4,30 @@
   top: 40%;
 }
 
+
+
+.my-stepper {
+  .mat-step-header.cdk-program-focused:hover{
+    background-color: rgba(0, 0, 0, 0);
+  }
+  
+  .mat-step-icon {
+    background-color: #FF5E3A;
+  }
+  .mat-step-icon .mat-icon {
+    font-size: 20px;
+    height: 20px;
+    width: 20px;
+  }
+  .mat-stepper-vertical-line::before {
+    top: -24px;
+    bottom: -24px;
+    background-color: #FF5E3A;
+  }
+  
+}
+
+
 .stepper-container {
   display: flex;
   flex-direction: row;

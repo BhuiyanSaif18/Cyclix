@@ -34,14 +34,14 @@ export class StepperComponent implements OnInit {
     this.getBikeType();
     this.getBikeBrands();
     this.cycleInfoFormGroup = this.formBuilder.group({
-      cycleType: [''],
-      brandName: [''],
+      cycleType: ['', [Validators.required]],
+      brandName: ['', [Validators.required]],
     });
 
     this.servicePricingFormGroup = this.formBuilder.group({
       servicePricingOption: [''],
       skipServicePackage: [false],
-      isElectricCycle: [false],
+      isElectricCycle: [false, [Validators.required]],
     });
 
     this.individualPartServiceFormGroup = this.formBuilder.group({
@@ -59,19 +59,19 @@ export class StepperComponent implements OnInit {
     });
 
     this.cycleProblemDetailFormGroup = this.formBuilder.group({
-      moreDetailedIssue: [''],
-      estimatedCost: [''],
+      moreDetailedIssue: ['',[Validators.required]],
+      estimatedCost: ['', [Validators.required]],
     });
 
     this.addressFormGroup = this.formBuilder.group({
-      firstName: [''],
-      lastName: [''],
+      firstName: ['',[Validators.required]],
+      lastName: ['',[Validators.required]],
       street: [''],
       nr: [''],
       city: [''],
       zipCode: [''],
       email: ['', [Validators.required, Validators.email]],
-      phone: [''],
+      phone: ['', [Validators.required]],
     });
   }
   getBikeBrands() {

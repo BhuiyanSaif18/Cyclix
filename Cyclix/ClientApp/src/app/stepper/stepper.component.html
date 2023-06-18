@@ -1,16 +1,22 @@
 <div class="stepper-container">
   <div class="stepper-content">
-    <mat-vertical-stepper [disableRipple]="true">
-      <mat-step>
+    <mat-vertical-stepper class="my-stepper" [disableRipple]="true">
+      <mat-step [completed]="false" state="circle">
       </mat-step>
-      <mat-step>
+      <mat-step [completed]="false" state="circle">
       </mat-step>
-      <mat-step>
+      <mat-step [completed]="false" state="circle">
       </mat-step>
-      <mat-step>
+      <mat-step [completed]="false" state="circle">
       </mat-step>
-      <mat-step>
+      <mat-step [completed]="false" state="circle">
       </mat-step>
+      <ng-template matStepperIcon="edit"></ng-template>
+      <ng-template matStepperIcon="done"></ng-template>
+      <ng-template matStepperIcon="number"></ng-template>
+      <ng-template matStepperIcon="circle">
+        <mat-icon>circle</mat-icon>
+      </ng-template>
     </mat-vertical-stepper>
   </div>
 
@@ -52,9 +58,6 @@
 
       </ng-container>
       <ng-container *ngIf="stepper && stepper.selectedIndex === 1">
-
-
-        <!-- Content for Step 2 -->
         <mat-card class="mat-card-generic">
           <span class="stepper-5-address-info mb-24">Möchtest du ein Standard Service Paket buchen?</span>
           <span class="stepper-1-warning-message mb-24">Falls du mit "Service Paketen" nichts anfangen kannst, findest du
@@ -91,7 +94,6 @@
       </ng-container>
       <ng-container *ngIf="stepper && stepper.selectedIndex === 2">
 
-        <!-- Content for Step 3 -->
         <mat-card class="mat-card-generic">
           <span class="stepper-5-address-info mb-24">Möchtest du nur einzelne Services buchen?</span>
           <span class="stepper-1-warning-message">Eine Mehrfachauswahl ist möglich.</span>
@@ -127,7 +129,6 @@
       </ng-container>
       <ng-container *ngIf="stepper && stepper.selectedIndex === 3">
 
-        <!-- Content for Step 4 -->
         <mat-card class="mat-card-generic">
           <span class="stepper-5-address-info mb-24">Möchtest du das Problem an deinem Velo noch näher
             beschreiben?</span>
@@ -148,7 +149,6 @@
       </ng-container>
       <ng-container *ngIf="stepper && stepper.selectedIndex === 4">
 
-        <!-- Content for Step 5 -->
         <mat-card class="mat-card-generic">
           <span class="stepper-5-address-info mb-24">Sag uns noch kurz etwas über dich:</span>
           <form class="stepper-5-address-form" [formGroup]="addressFormGroup">
