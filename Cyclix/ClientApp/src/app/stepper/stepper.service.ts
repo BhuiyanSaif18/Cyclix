@@ -13,22 +13,22 @@ export class StepperService {
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {}
 
   getBrands() : Observable<CycleBrand[]> {
-    return this.http.get<CycleBrand[]>(this.baseUrl + 'brand');
-    // return of(
-    //   [
-    //     { name: 'Trek' }, 
-    //     { name: 'BMC' },
-    //     { name: 'Scott' }
-    //   ]);
+    // return this.http.get<CycleBrand[]>(this.baseUrl + 'brand');
+    return of(
+      [
+        { name: 'Trek' }, 
+        { name: 'BMC' },
+        { name: 'Scott' }
+      ]);
   }
   getBikeType(): Observable<CycleType[]> {
-    return this.http.get<CycleType[]>(this.baseUrl + 'cycletype');
-    // return of(
-    //   [
-    //     { name: 'Rennvelo' }, 
-    //     { name: 'Reisevelo' },
-    //     { name: 'Elektro Velo' }
-    //   ]);
+    // return this.http.get<CycleType[]>(this.baseUrl + 'cycletype');
+    return of(
+      [
+        { name: 'Rennvelo' }, 
+        { name: 'Reisevelo' },
+        { name: 'Elektro Velo' }
+      ]);
   }
 
   saveRepairRequest(repairRequestModel: RepairRequestModel) : Observable<void> {

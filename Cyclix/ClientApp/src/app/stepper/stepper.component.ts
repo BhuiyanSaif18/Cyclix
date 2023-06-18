@@ -4,6 +4,7 @@ import { MatStepper } from '@angular/material/stepper';
 import { Subscription } from 'rxjs';
 import { StepperService } from './stepper.service';
 import { RepairRequestModel } from 'src/models/RepairRequestMode';
+import { CycleType } from 'src/models/CycleType';
 
 @Component({
   selector: 'app-stepper',
@@ -13,6 +14,8 @@ import { RepairRequestModel } from 'src/models/RepairRequestMode';
 export class StepperComponent implements OnInit {
   @ViewChild(MatStepper) stepper!: MatStepper;
 
+  cycleTypeOptions : string[] = [];
+  brandOptions : string[] = [];
   cycleInfoFormGroup!: FormGroup;
   servicePricingFormGroup!: FormGroup;
   individualPartServiceFormGroup!: FormGroup;
@@ -76,13 +79,13 @@ export class StepperComponent implements OnInit {
   }
   getBikeBrands() {
     const sub = this.stepperService.getBrands().subscribe((x) => {
-      console.log(x);
+      this.brandOptions = x.map((x) => x.name);
     });
     this.subscriptions.push(sub);
   }
   getBikeType() {
     const sub = this.stepperService.getBikeType().subscribe((x) => {
-      console.log(x);
+      this.cycleTypeOptions = x.map((x) => x.name);
     });
     this.subscriptions.push(sub);
   }

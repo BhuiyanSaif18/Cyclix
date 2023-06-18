@@ -1,6 +1,6 @@
 <div class="stepper-container">
   <div class="stepper-content">
-    <mat-vertical-stepper class="my-stepper" [disableRipple]="true">
+    <mat-vertical-stepper class="repair-request-steps" animationDuration="500" [disableRipple]="true">
       <mat-step [completed]="false" state="circle">
       </mat-step>
       <mat-step [completed]="false" state="circle">
@@ -33,22 +33,16 @@
               <div>
                 <p>{{'DO_YOU_KNOW_YOUR_BIKE_TYPE' | translate}}</p>
                 <mat-form-field>
-                  <!-- <mat-label>Dropdown 1</mat-label> -->
                   <mat-select required required formControlName="cycleType">
-                    <mat-option value="Rennvelo">Rennvelo</mat-option>
-                    <mat-option value="Reisevelo">Reisevelo</mat-option>
-                    <mat-option value="Elektro Velo">Elektro Velo</mat-option>
+                    <mat-option *ngFor="let option of cycleTypeOptions" [value]="option">{{option}}</mat-option>
                   </mat-select>
                 </mat-form-field>
               </div>
               <div>
                 <p>{{'WHAT_BRAND_IS_YOUR_BIKE' | translate}}</p>
                 <mat-form-field>
-                  <!-- <mat-label>Dropdown 2</mat-label> -->
                   <mat-select required formControlName="brandName">
-                    <mat-option value="Trek">Trek</mat-option>
-                    <mat-option value="BMC">BMC</mat-option>
-                    <mat-option value="Scott">Scott</mat-option>
+                    <mat-option *ngFor="let option of brandOptions" [value]="option">{{option}}</mat-option>
                   </mat-select>
                 </mat-form-field>
               </div>
