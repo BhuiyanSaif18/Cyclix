@@ -304,16 +304,6 @@
 
 
 
-.address-form-field-border {
-  border: 2px solid #FF5E3A;
-  border-radius: 5px;
-}
-
-
-
-
-
-
 
 .mat-mdc-button:not(:disabled) {
   color: #FFFFFF;
@@ -330,6 +320,14 @@
 
 .mt-24{
   margin-top: 24px;
+}
+
+.mt-64{
+  margin-top: 64px;
+}
+
+.mt-100{
+  margin-top: 100px;
 }
 
 .ml-22{
@@ -365,5 +363,5 @@
   text-align: center;
   background: #FF5E3A;
   color: #FFFFFF;
-  padding: 40px 100px;
+  padding: 50px 100px;
 }
