@@ -98,19 +98,19 @@
       </ng-container>
       <ng-container *ngIf="stepper && stepper.selectedIndex === 2">
 
-        <mat-card class="mat-card-generic">
-          <span class="stepper-5-address-info mb-24">Möchtest du nur einzelne Services buchen?</span>
-          <span class="stepper-1-warning-message">Eine Mehrfachauswahl ist möglich.</span>
-          <form class="stepper-3" [formGroup]="individualPartServiceFormGroup">
-            <div class="stepper-3-upper">
-              <div class="stepper-3-address-form-left">
+        <mat-card class="stepper-3-parent mat-card-generic">
+          <span class="stepper-3-info mb-24">Möchtest du nur einzelne Services buchen?</span>
+          <span class="warning-message mb-40">Eine Mehrfachauswahl ist möglich.</span>
+          <form class="stepper-3-form" [formGroup]="individualPartServiceFormGroup">
+            <div class="stepper-3-row mb-40">
+              <div class="stepper-3-parts-form-left">
                 <mat-checkbox formControlName="tubeOrTire">Schlauch- und/oder Reifenwechsel</mat-checkbox>
                 <mat-checkbox formControlName="wheelCentering">Räder zentrieren</mat-checkbox>
                 <mat-checkbox formControlName="adjustingGears">Schaltung einstellen</mat-checkbox>
                 <mat-checkbox formControlName="adjectBreaks">Bremsen prüfen und einstellen</mat-checkbox>
                 <mat-checkbox formControlName="changeBreakPads">Bremsbeläge wechseln</mat-checkbox>
               </div>
-              <div class="stepper-3-address-form-right">
+              <div class="stepper-3-parts-form-right">
 
                 <mat-checkbox formControlName="suspension">Federgabel Service</mat-checkbox>
                 <mat-checkbox formControlName="damper">Dämpfer Service</mat-checkbox>
@@ -119,12 +119,12 @@
               </div>
             </div>
             <div>
-              <span class="stepper-5-address-info">E-Velo: </span>
-              <div>
+              <span class="stepper-3-info">E-Velo: </span>
+              <div class="stepper-3-row mt-24">
                 <mat-checkbox formControlName="functionCheck">Funktionskontrolle Elektronik/Antrieb</mat-checkbox>
+                <mat-checkbox formControlName="batteryCheck">Batterie prüfen und laden</mat-checkbox>
               </div>
               <div>
-                <mat-checkbox formControlName="batteryCheck">Batterie prüfen und laden</mat-checkbox>
               </div>
             </div>
           </form>
