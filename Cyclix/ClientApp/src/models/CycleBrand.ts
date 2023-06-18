@@ -1,3 +1,3 @@
-export type CycleBrand = {
+export interface CycleBrand {
     name : string
 }
