@@ -7,6 +7,9 @@ const PROXY_CONFIG = [
   {
     context: [
       "/weatherforecast",
+      "/brand",
+      "/cycletype",
+      "/repairrequest"
    ],
     target: target,
     secure: false,
@@ -14,6 +17,27 @@ const PROXY_CONFIG = [
       Connection: 'Keep-Alive'
     }
   }
+  // {
+  //   context: [
+  //     "/brand",
+  //  ],
+  //   target: target,
+  //   secure: false,
+  //   headers: {
+  //     Connection: 'Keep-Alive'
+  //   }
+  // },
+  // {
+  //   context: [
+  //     "/cycletype",
+  //  ],
+  //   target: target,
+  //   secure: false,
+  //   headers: {
+  //     Connection: 'Keep-Alive'
+  //   }
+  // },
+
 ]
 
 module.exports = PROXY_CONFIG;

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatStepper } from '@angular/material/stepper';
 import { Subscription } from 'rxjs';
 import { StepperService } from './stepper.service';
+import { RepairRequestModel } from 'src/models/RepairRequestMode';
 
 @Component({
   selector: 'app-stepper',
@@ -109,6 +110,16 @@ export class StepperComponent implements OnInit {
         this.cycleProblemDetailFormGroup.value
       );
       console.log('Address form values:', this.addressFormGroup.value);
+      let repairRequestModel : RepairRequestModel = {...this.cycleInfoFormGroup.value,
+        ...this.servicePricingFormGroup.value,
+        ...this.individualPartServiceFormGroup.value,
+        ...this.cycleProblemDetailFormGroup.value,
+        ...this.addressFormGroup.value
+      }
+      const sub = this.stepperService.saveRepairRequest(repairRequestModel).subscribe((x) => {
+        console.log(x);
+      });
+      this.subscriptions.push(sub);
     }
   }
   ngOnDestroy(): void {
