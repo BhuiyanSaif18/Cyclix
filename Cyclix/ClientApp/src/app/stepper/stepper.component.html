@@ -133,12 +133,12 @@
       </ng-container>
       <ng-container *ngIf="stepper && stepper.selectedIndex === 3">
 
-        <mat-card class="mat-card-generic">
-          <span class="stepper-5-address-info mb-24">Möchtest du das Problem an deinem Velo noch näher
+        <mat-card class="stepper-4-parent mat-card-generic">
+          <span class="stepper-4-address-info mb-24">Möchtest du das Problem an deinem Velo noch näher
             beschreiben?</span>
           <form [formGroup]="cycleProblemDetailFormGroup">
             <mat-form-field appearance="outline" class="w-100-p">
-              <textarea required matInput formControlName="moreDetailedIssue"
+              <textarea rows="7" required matInput formControlName="moreDetailedIssue"
                 placeholder="z.B. die Kette ist gerissen, ich habe einen Achter im Vorderrad."></textarea>
             </mat-form-field>
             <div>
@@ -153,7 +153,7 @@
       </ng-container>
       <ng-container *ngIf="stepper && stepper.selectedIndex === 4">
 
-        <mat-card class="mat-card-generic">
+        <mat-card class="stepper-5-parent mat-card-generic">
           <span class="stepper-5-address-info mb-24">Sag uns noch kurz etwas über dich:</span>
           <form class="stepper-5-address-form" [formGroup]="addressFormGroup">
             <div class="stepper-5-address-form-rows">
