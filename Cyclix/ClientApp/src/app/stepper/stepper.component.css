@@ -57,6 +57,65 @@
 }
 
 
+
+.stepper-1-parent{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .stepper-1-header-info{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 70px;
+    letter-spacing: -0.02em;
+    color: #FF5E3A;
+    margin-bottom: 76px;
+  }
+  .stepper-1-warning-message{
+    font-weight: 1000;
+    font-size: 12px;
+    line-height: 20px;
+    color: #0D0F1E;
+  }
+  .stepper-1-form{
+    display: flex;
+    justify-content: flex-start;
+    gap: 110px;
+    margin-top: 24px;
+  }
+  .label-text{
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    color: #FF5E3A;
+  }
+  .mdc-text-field--filled:not(.mdc-text-field--disabled){
+    background-color: white;
+    border-radius: 15px;
+    height: 55px;
+  }
+  .mat-mdc-form-field-infix {
+    width: 317px;
+  }
+  .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before{
+    border: none;
+  }
+  .mat-mdc-select-value-text{
+    color: #FF5E3A;
+  }
+
+  /* .mat-mdc-select-arrow {
+    opacity: 0;
+  } */
+}
+
+
+
+
+
+
+
+
 .service-package-pricing{
 
   .service-packages-form{
@@ -89,42 +148,6 @@
   }
 }
 
-
-
-
-
-
-
-.mdc-text-field--filled:not(.mdc-text-field--disabled){
-  background-color: pink;
-}
-.stepper-1-form{
-  display: flex;
-  justify-content: flex-start;
-  gap: 110px;
-  margin-top: 24px;
-}
-.stepper-1-header-info{
-  font-style: normal;
-  font-weight: 400;
-  font-size: 60px;
-  line-height: 70px;
-  letter-spacing: -0.02em;
-  color: #FF5E3A;
-  margin-bottom: 76px;
-}
-.stepper-1-parent{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.stepper-1-warning-message{
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 20px;
-  color: #0D0F1E;
-}
 
 
 .stepper-3{

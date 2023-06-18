@@ -24,22 +24,26 @@
     <div>
       <ng-container *ngIf="stepper && stepper.selectedIndex === 0">
 
-        <!-- Content for Step 1 -->
         <div class="stepper-1-parent">
           <span class="stepper-1-header-info">{{'TELL_US_SOMETHING_ABOUT_YOUR_BIKE' | translate}}</span>
           <mat-card class="mat-card-generic">
             <span class="stepper-1-warning-message">{{ 'FIELDS_MARKED_WITH_ARE_REQUIRED' | translate}}</span>
             <form class="stepper-1-form" [formGroup]="cycleInfoFormGroup">
               <div>
-                <p>{{'DO_YOU_KNOW_YOUR_BIKE_TYPE' | translate}}</p>
+                <p class="label-text">{{'DO_YOU_KNOW_YOUR_BIKE_TYPE' | translate}}</p>
                 <mat-form-field>
                   <mat-select required required formControlName="cycleType">
                     <mat-option *ngFor="let option of cycleTypeOptions" [value]="option">{{option}}</mat-option>
                   </mat-select>
+                  <!-- <mat-icon>
+                    <svg width="36" height="21" viewBox="0 0 36 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M2 2L18 18L34 2" stroke="#FF5E3A" stroke-width="3"/>
+                      </svg>
+                  </mat-icon> -->
                 </mat-form-field>
               </div>
               <div>
-                <p>{{'WHAT_BRAND_IS_YOUR_BIKE' | translate}}</p>
+                <p class="label-text">{{'WHAT_BRAND_IS_YOUR_BIKE' | translate}}</p>
                 <mat-form-field>
                   <mat-select required formControlName="brandName">
                     <mat-option *ngFor="let option of brandOptions" [value]="option">{{option}}</mat-option>
