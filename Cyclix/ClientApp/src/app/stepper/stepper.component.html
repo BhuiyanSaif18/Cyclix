@@ -27,7 +27,7 @@
         <div class="stepper-1-parent">
           <span class="stepper-1-header-info">{{'TELL_US_SOMETHING_ABOUT_YOUR_BIKE' | translate}}</span>
           <mat-card class="mat-card-generic">
-            <span class="stepper-1-warning-message">{{ 'FIELDS_MARKED_WITH_ARE_REQUIRED' | translate}}</span>
+            <span class="warning-message">{{ 'FIELDS_MARKED_WITH_ARE_REQUIRED' | translate}}</span>
             <form class="stepper-1-form" [formGroup]="cycleInfoFormGroup">
               <div>
                 <p class="label-text">{{'DO_YOU_KNOW_YOUR_BIKE_TYPE' | translate}}</p>
@@ -56,9 +56,15 @@
 
       </ng-container>
       <ng-container *ngIf="stepper && stepper.selectedIndex === 1">
-        <mat-card class="mat-card-generic">
-          <span class="stepper-5-address-info mb-24">Möchtest du ein Standard Service Paket buchen?</span>
-          <span class="stepper-1-warning-message mb-24">Falls du mit "Service Paketen" nichts anfangen kannst, findest du
+        <mat-card class="stepper-2-parent mat-card-generic">
+    
+          <span class="stepper-2-address-info mb-24 ">Möchtest du ein Standard Service Paket buchen?
+            <button class="ml-22" disableRipple mat-mini-fab>
+              <mat-icon>question_mark</mat-icon>
+            </button>
+          </span>
+            
+          <span class="warning-message mb-24">Falls du mit "Service Paketen" nichts anfangen kannst, findest du
             weiter unten eine Auswahlliste mit verschiedenen Service-Leistungen.</span>
           <form class="service-package-pricing" [formGroup]="servicePricingFormGroup">
             <mat-radio-group class="service-packages-form mb-28"  formControlName="servicePricingOption">
