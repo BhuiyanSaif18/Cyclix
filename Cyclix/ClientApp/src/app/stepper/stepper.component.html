@@ -28,7 +28,7 @@
                 <p>{{'DO_YOU_KNOW_YOUR_BIKE_TYPE' | translate}}</p>
                 <mat-form-field>
                   <!-- <mat-label>Dropdown 1</mat-label> -->
-                  <mat-select required formControlName="cycleType">
+                  <mat-select required required formControlName="cycleType">
                     <mat-option value="Rennvelo">Rennvelo</mat-option>
                     <mat-option value="Reisevelo">Reisevelo</mat-option>
                     <mat-option value="Elektro Velo">Elektro Velo</mat-option>
@@ -39,7 +39,7 @@
                 <p>{{'WHAT_BRAND_IS_YOUR_BIKE' | translate}}</p>
                 <mat-form-field>
                   <!-- <mat-label>Dropdown 2</mat-label> -->
-                  <mat-select formControlName="brandName">
+                  <mat-select required formControlName="brandName">
                     <mat-option value="Trek">Trek</mat-option>
                     <mat-option value="BMC">BMC</mat-option>
                     <mat-option value="Scott">Scott</mat-option>
@@ -83,7 +83,7 @@
             </mat-radio-group>
             <div>
               <mat-checkbox class="info-text" formControlName="skipServicePackage">Kein Service Paket buchen</mat-checkbox>
-              <mat-checkbox  formControlName="isElectricCycle">Hat dein Velo einen Elektro Antrieb?</mat-checkbox>
+              <mat-checkbox required formControlName="isElectricCycle">Hat dein Velo einen Elektro Antrieb?</mat-checkbox>
             </div>
           </form>
         </mat-card>
@@ -133,12 +133,12 @@
             beschreiben?</span>
           <form [formGroup]="cycleProblemDetailFormGroup">
             <mat-form-field appearance="outline" class="w-100-p">
-              <textarea matInput formControlName="moreDetailedIssue"
+              <textarea required matInput formControlName="moreDetailedIssue"
                 placeholder="z.B. die Kette ist gerissen, ich habe einen Achter im Vorderrad."></textarea>
             </mat-form-field>
             <div>
               <mat-form-field appearance="outline">
-                <input matInput formControlName="estimatedCost">
+                <input required matInput formControlName="estimatedCost">
               </mat-form-field>
               <span class="stepper-4-bottom-text">Hast du ein Kostendach?</span>
             </div>
@@ -154,10 +154,10 @@
           <form class="stepper-5-address-form" [formGroup]="addressFormGroup">
             <div class="stepper-5-address-form-rows">
               <mat-form-field class="w-50-p" appearance="outline">
-                <input matInput formControlName="firstName" placeholder="Vorname">
+                <input required matInput formControlName="firstName" placeholder="Vorname" >
               </mat-form-field>
               <mat-form-field class="w-50-p" appearance="outline">
-                <input matInput formControlName="lastName" placeholder="Nachname">
+                <input required matInput formControlName="lastName" placeholder="Nachname">
               </mat-form-field>
             </div>
 
@@ -181,10 +181,10 @@
 
             <div class="stepper-5-address-form-rows">
               <mat-form-field class="w-50-p" appearance="outline">
-                <input matInput formControlName="email" placeholder="E-mail">
+                <input required matInput formControlName="email" placeholder="E-mail">
               </mat-form-field>
               <mat-form-field class="w-50-p" appearance="outline">
-                <input matInput formControlName="phone" placeholder="Telefon">
+                <input required matInput formControlName="phone" placeholder="Telefon">
               </mat-form-field>
             </div>
           </form>
