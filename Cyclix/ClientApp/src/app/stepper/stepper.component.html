@@ -157,37 +157,37 @@
           <span class="stepper-5-address-info mb-24">Sag uns noch kurz etwas über dich:</span>
           <form class="stepper-5-address-form" [formGroup]="addressFormGroup">
             <div class="stepper-5-address-form-rows">
-              <mat-form-field required class="w-50-p" appearance="outline">
+              <mat-form-field required class="w-390" appearance="outline">
                 <input  matInput formControlName="firstName" placeholder="Vorname*" >
               </mat-form-field>
-              <mat-form-field class="w-50-p" appearance="outline">
+              <mat-form-field class="w-390" appearance="outline">
                 <input required matInput formControlName="lastName" placeholder="Nachname*">
               </mat-form-field>
             </div>
 
             <div class="stepper-5-address-form-rows">
-              <mat-form-field class="w-50-p" appearance="outline">
+              <mat-form-field class="w-390" appearance="outline">
                 <input matInput formControlName="street" placeholder="Strasse">
               </mat-form-field>
-              <mat-form-field class="w-50-p" appearance="outline">
+              <mat-form-field class="w-390" appearance="outline">
                 <input matInput formControlName="nr" placeholder="Nr">
               </mat-form-field>
             </div>
 
             <div class="stepper-5-address-form-rows">
-              <mat-form-field class="w-50-p" appearance="outline">
+              <mat-form-field class="w-390" appearance="outline">
                 <input matInput formControlName="zipCode" placeholder="PLZ">
               </mat-form-field>
-              <mat-form-field class="w-50-p" appearance="outline">
+              <mat-form-field class="w-390" appearance="outline">
                 <input matInput formControlName="city" placeholder="Ort">
               </mat-form-field>
             </div>
 
             <div class="stepper-5-address-form-rows">
-              <mat-form-field class="w-50-p" appearance="outline">
+              <mat-form-field class="w-390" appearance="outline">
                 <input required matInput formControlName="email" placeholder="E-mail*">
               </mat-form-field>
-              <mat-form-field class="w-50-p" appearance="outline">
+              <mat-form-field class="w-390" appearance="outline">
                 <input required matInput formControlName="phone" placeholder="Telefon*">
               </mat-form-field>
             </div>
@@ -202,7 +202,7 @@
         <mat-icon>arrow_downward </mat-icon>
       </button>
       <button *ngIf="stepper && stepper.selectedIndex === 4" 
-      mat-button class="submit-button mt-100" (click)="onSubmit()"
+      mat-button class="submit-button mt-64" (click)="onSubmit()"
       [disabled]="!(cycleInfoFormGroup.valid &&
       servicePricingFormGroup.valid &&
       individualPartServiceFormGroup.valid &&
