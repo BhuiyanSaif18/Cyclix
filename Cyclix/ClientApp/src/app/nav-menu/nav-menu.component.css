@@ -16,3 +16,30 @@ html {
 .box-shadow {
   box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
+
+nav{
+  background: #0D0F1E;
+  height: 100px;
+}
+
+.logo{
+  width: 150px;
+  height: 30px;
+}
+
+.hr{
+  width: 154px;
+  height: 5.62px;
+  margin: 10px 0px 0px 0px;
+  background: #ff5e3a;
+  border-top: none;
+  opacity: 1;
+}
+
+.container{
+  display: flex;
+  flex-wrap: inherit;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-top: 26px;
+}
