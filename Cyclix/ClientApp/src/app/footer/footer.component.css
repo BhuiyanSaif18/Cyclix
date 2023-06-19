@@ -1,0 +1,56 @@
+footer{
+    height: 462px;
+    background: #0d0f1e;
+    color: white;
+}
+.container{
+    
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 36px;
+    padding-top: 50px;
+
+}
+.logo{
+    width: 150px;
+    height: 30px;
+}
+
+.hr{
+    width: 154px;
+    height: 5.62px;
+    margin: 10px 0px 0px 0px;
+    background: #ff5e3a;
+    border-top: none;
+    opacity: 1;
+}
+.follow-cyclix{
+    font-size: 12px;
+    line-height: 20px;
+}
+.social-media-icon{
+    width: 37.74px;
+    height: 37.74px;
+}
+
+.instagram {
+    height: 44px;
+    width: 38px;
+}
+
+.linkedin {
+    height: 44px;
+    width: 38px;
+}
+
+.social-media-container{
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
