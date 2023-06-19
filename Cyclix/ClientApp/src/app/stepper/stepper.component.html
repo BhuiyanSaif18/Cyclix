@@ -1,16 +1,15 @@
 <div class="stepper-container">
   <div class="stepper-content">
-    <mat-vertical-stepper class="repair-request-steps" animationDuration="500" [disableRipple]="true">
-      <mat-step [completed]="false" state="circle">
-      </mat-step>
-      <mat-step [completed]="false" state="circle">
-      </mat-step>
-      <mat-step [completed]="false" state="circle">
-      </mat-step>
-      <mat-step [completed]="false" state="circle">
-      </mat-step>
-      <mat-step [completed]="false" state="circle">
-      </mat-step>
+    <mat-vertical-stepper
+      class="repair-request-steps"
+      animationDuration="500"
+      [disableRipple]="true"
+    >
+      <mat-step [completed]="false" state="circle"> </mat-step>
+      <mat-step [completed]="false" state="circle"> </mat-step>
+      <mat-step [completed]="false" state="circle"> </mat-step>
+      <mat-step [completed]="false" state="circle"> </mat-step>
+      <mat-step [completed]="false" state="circle"> </mat-step>
       <ng-template matStepperIcon="edit"></ng-template>
       <ng-template matStepperIcon="done"></ng-template>
       <ng-template matStepperIcon="number"></ng-template>
@@ -23,17 +22,26 @@
   <div class="step-content">
     <div>
       <ng-container *ngIf="stepper && stepper.selectedIndex === 0">
-
         <div class="stepper-1-parent">
-          <span class="stepper-1-header-info">{{'TELL_US_SOMETHING_ABOUT_YOUR_BIKE' | translate}}</span>
+          <span class="stepper-1-header-info">{{
+            "TELL_US_SOMETHING_ABOUT_YOUR_BIKE" | translate
+          }}</span>
           <mat-card class="mat-card-generic">
-            <span class="warning-message">{{ 'FIELDS_MARKED_WITH_ARE_REQUIRED' | translate}}</span>
+            <span class="warning-message">{{
+              "FIELDS_MARKED_WITH_ARE_REQUIRED" | translate
+            }}</span>
             <form class="stepper-1-form" [formGroup]="cycleInfoFormGroup">
               <div>
-                <p class="label-text">{{'DO_YOU_KNOW_YOUR_BIKE_TYPE' | translate}}*</p>
+                <p class="label-text">
+                  {{ "DO_YOU_KNOW_YOUR_BIKE_TYPE" | translate }}*
+                </p>
                 <mat-form-field>
                   <mat-select required formControlName="cycleType">
-                    <mat-option *ngFor="let option of cycleTypeOptions" [value]="option">{{option}}</mat-option>
+                    <mat-option
+                      *ngFor="let option of cycleTypeOptions"
+                      [value]="option"
+                      >{{ option }}</mat-option
+                    >
                   </mat-select>
                   <!-- <mat-icon>
                     <svg width="36" height="21" viewBox="0 0 36 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,175 +51,269 @@
                 </mat-form-field>
               </div>
               <div>
-                <p class="label-text">{{'WHAT_BRAND_IS_YOUR_BIKE' | translate}}*</p>
-                <mat-form-field >
+                <p class="label-text">
+                  {{ "WHAT_BRAND_IS_YOUR_BIKE" | translate }}*
+                </p>
+                <mat-form-field>
                   <mat-select required formControlName="brandName">
-                    <mat-option *ngFor="let option of brandOptions" [value]="option">{{option}}</mat-option>
+                    <mat-option
+                      *ngFor="let option of brandOptions"
+                      [value]="option"
+                      >{{ option }}</mat-option
+                    >
                   </mat-select>
                 </mat-form-field>
               </div>
             </form>
           </mat-card>
         </div>
-
       </ng-container>
       <ng-container *ngIf="stepper && stepper.selectedIndex === 1">
         <mat-card class="stepper-2-parent mat-card-generic">
-    
-          <span class="stepper-2-address-info mb-24 ">Möchtest du ein Standard Service Paket buchen?
+          <span class="stepper-2-address-info mb-24"
+            >Möchtest du ein Standard Service Paket buchen?
             <button class="ml-22" disableRipple mat-mini-fab>
               <mat-icon>question_mark</mat-icon>
             </button>
           </span>
-            
-          <span class="warning-message mb-24">Falls du mit "Service Paketen" nichts anfangen kannst, findest du
-            weiter unten eine Auswahlliste mit verschiedenen Service-Leistungen.</span>
-          <form class="service-package-pricing" [formGroup]="servicePricingFormGroup">
-            <mat-radio-group class="service-packages-form mb-28"  formControlName="servicePricingOption">
 
+          <span class="warning-message mb-24"
+            >Falls du mit "Service Paketen" nichts anfangen kannst, findest du
+            weiter unten eine Auswahlliste mit verschiedenen
+            Service-Leistungen.</span
+          >
+          <form
+            class="service-package-pricing"
+            [formGroup]="servicePricingFormGroup"
+          >
+            <mat-radio-group
+              class="service-packages-form mb-28"
+              formControlName="servicePricingOption"
+            >
               <div class="service-package-radio-container">
-                <mat-card class="mat-card--serice-packages mb-28">Icon/ Illu</mat-card>
+                <mat-card class="mat-card--serice-packages mb-28"
+                  >Icon/ Illu</mat-card
+                >
                 <span class="info-text mb-24">Check-Up, ca. 50 CHF</span>
                 <mat-radio-button value="50"></mat-radio-button>
               </div>
 
               <div class="service-package-radio-container">
-                <mat-card class="mat-card--serice-packages mb-28">Icon/ Illu</mat-card>
+                <mat-card class="mat-card--serice-packages mb-28"
+                  >Icon/ Illu</mat-card
+                >
                 <span class="info-text mb-24">Service klein, ca. 120 CHF</span>
                 <mat-radio-button value="120"></mat-radio-button>
               </div>
 
               <div class="service-package-radio-container">
-                <mat-card class="mat-card--serice-packages mb-28">Icon/ Illu</mat-card>
+                <mat-card class="mat-card--serice-packages mb-28"
+                  >Icon/ Illu</mat-card
+                >
                 <span class="info-text mb-24">CService gross, ca. 170 CHF</span>
                 <mat-radio-button value="170"></mat-radio-button>
               </div>
-
             </mat-radio-group>
             <div>
-              <mat-checkbox class="info-text" formControlName="skipServicePackage">Kein Service Paket buchen</mat-checkbox>
-              <mat-checkbox formControlName="isElectricCycle">Hat dein Velo einen Elektro Antrieb?</mat-checkbox>
+              <mat-checkbox
+                class="info-text"
+                formControlName="skipServicePackage"
+                >Kein Service Paket buchen</mat-checkbox
+              >
+              <mat-checkbox formControlName="isElectricCycle"
+                >Hat dein Velo einen Elektro Antrieb?</mat-checkbox
+              >
             </div>
           </form>
         </mat-card>
-
       </ng-container>
       <ng-container *ngIf="stepper && stepper.selectedIndex === 2">
-
         <mat-card class="stepper-3-parent mat-card-generic">
-          <span class="stepper-3-info mb-24">Möchtest du nur einzelne Services buchen?</span>
-          <span class="warning-message mb-40">Eine Mehrfachauswahl ist möglich.</span>
-          <form class="stepper-3-form" [formGroup]="individualPartServiceFormGroup">
+          <span class="stepper-3-info mb-24"
+            >Möchtest du nur einzelne Services buchen?</span
+          >
+          <span class="warning-message mb-40"
+            >Eine Mehrfachauswahl ist möglich.</span
+          >
+          <form
+            class="stepper-3-form"
+            [formGroup]="individualPartServiceFormGroup"
+          >
             <div class="stepper-3-row mb-40">
               <div class="stepper-3-parts-form-left">
-                <mat-checkbox formControlName="tubeOrTire">Schlauch- und/oder Reifenwechsel</mat-checkbox>
-                <mat-checkbox formControlName="wheelCentering">Räder zentrieren</mat-checkbox>
-                <mat-checkbox formControlName="adjustingGears">Schaltung einstellen</mat-checkbox>
-                <mat-checkbox formControlName="adjectBreaks">Bremsen prüfen und einstellen</mat-checkbox>
-                <mat-checkbox formControlName="changeBreakPads">Bremsbeläge wechseln</mat-checkbox>
+                <mat-checkbox formControlName="tubeOrTire"
+                  >Schlauch- und/oder Reifenwechsel</mat-checkbox
+                >
+                <mat-checkbox formControlName="wheelCentering"
+                  >Räder zentrieren</mat-checkbox
+                >
+                <mat-checkbox formControlName="adjustingGears"
+                  >Schaltung einstellen</mat-checkbox
+                >
+                <mat-checkbox formControlName="adjectBreaks"
+                  >Bremsen prüfen und einstellen</mat-checkbox
+                >
+                <mat-checkbox formControlName="changeBreakPads"
+                  >Bremsbeläge wechseln</mat-checkbox
+                >
               </div>
               <div class="stepper-3-parts-form-right">
-
-                <mat-checkbox formControlName="suspension">Federgabel Service</mat-checkbox>
-                <mat-checkbox formControlName="damper">Dämpfer Service</mat-checkbox>
-                <mat-checkbox formControlName="completeCleaning">Fahrrad-Komplettreinigung</mat-checkbox>
-                <mat-checkbox formControlName="lightCheck">Licht kontrollieren</mat-checkbox>
+                <mat-checkbox formControlName="suspension"
+                  >Federgabel Service</mat-checkbox
+                >
+                <mat-checkbox formControlName="damper"
+                  >Dämpfer Service</mat-checkbox
+                >
+                <mat-checkbox formControlName="completeCleaning"
+                  >Fahrrad-Komplettreinigung</mat-checkbox
+                >
+                <mat-checkbox formControlName="lightCheck"
+                  >Licht kontrollieren</mat-checkbox
+                >
               </div>
             </div>
             <div>
               <span class="stepper-3-info">E-Velo: </span>
               <div class="stepper-3-row mt-24">
-                <mat-checkbox formControlName="functionCheck">Funktionskontrolle Elektronik/Antrieb</mat-checkbox>
-                <mat-checkbox formControlName="batteryCheck">Batterie prüfen und laden</mat-checkbox>
+                <mat-checkbox formControlName="functionCheck"
+                  >Funktionskontrolle Elektronik/Antrieb</mat-checkbox
+                >
+                <mat-checkbox formControlName="batteryCheck"
+                  >Batterie prüfen und laden</mat-checkbox
+                >
               </div>
-              <div>
-              </div>
+              <div></div>
             </div>
           </form>
         </mat-card>
-
       </ng-container>
       <ng-container *ngIf="stepper && stepper.selectedIndex === 3">
-
         <mat-card class="stepper-4-parent mat-card-generic">
-          <span class="stepper-4-address-info mb-24">Möchtest du das Problem an deinem Velo noch näher
-            beschreiben?*</span>
+          <span class="stepper-4-address-info mb-24"
+            >Möchtest du das Problem an deinem Velo noch näher
+            beschreiben?*</span
+          >
           <form [formGroup]="cycleProblemDetailFormGroup">
             <mat-form-field appearance="outline" class="w-100-p">
-              <textarea rows="7" required matInput formControlName="moreDetailedIssue"
-                placeholder="z.B. die Kette ist gerissen, ich habe einen Achter im Vorderrad."></textarea>
+              <textarea
+                rows="7"
+                required
+                matInput
+                formControlName="moreDetailedIssue"
+                placeholder="z.B. die Kette ist gerissen, ich habe einen Achter im Vorderrad."
+              ></textarea>
             </mat-form-field>
             <div>
               <mat-form-field appearance="outline">
-                <input required type="number" matInput formControlName="estimatedCost">
+                <input
+                  required
+                  type="number"
+                  matInput
+                  formControlName="estimatedCost"
+                />
               </mat-form-field>
-              <span class="stepper-4-bottom-text">Hast du ein Kostendach?*</span>
+              <span class="stepper-4-bottom-text"
+                >Hast du ein Kostendach?*</span
+              >
             </div>
           </form>
         </mat-card>
-
       </ng-container>
       <ng-container *ngIf="stepper && stepper.selectedIndex === 4">
-
         <mat-card class="stepper-5-parent mat-card-generic">
-          <span class="stepper-5-address-info mb-24">Sag uns noch kurz etwas über dich:</span>
+          <span class="stepper-5-address-info mb-24"
+            >Sag uns noch kurz etwas über dich:</span
+          >
           <form class="stepper-5-address-form" [formGroup]="addressFormGroup">
             <div class="stepper-5-address-form-rows">
               <mat-form-field required class="w-390" appearance="outline">
-                <input  matInput formControlName="firstName" placeholder="Vorname*" >
+                <input
+                  matInput
+                  formControlName="firstName"
+                  placeholder="Vorname*"
+                />
               </mat-form-field>
               <mat-form-field class="w-390" appearance="outline">
-                <input required matInput formControlName="lastName" placeholder="Nachname*">
-              </mat-form-field>
-            </div>
-
-            <div class="stepper-5-address-form-rows">
-              <mat-form-field class="w-390" appearance="outline">
-                <input matInput formControlName="street" placeholder="Strasse">
-              </mat-form-field>
-              <mat-form-field class="w-390" appearance="outline">
-                <input matInput formControlName="nr" placeholder="Nr">
-              </mat-form-field>
-            </div>
-
-            <div class="stepper-5-address-form-rows">
-              <mat-form-field class="w-390" appearance="outline">
-                <input matInput formControlName="zipCode" placeholder="PLZ">
-              </mat-form-field>
-              <mat-form-field class="w-390" appearance="outline">
-                <input matInput formControlName="city" placeholder="Ort">
+                <input
+                  required
+                  matInput
+                  formControlName="lastName"
+                  placeholder="Nachname*"
+                />
               </mat-form-field>
             </div>
 
             <div class="stepper-5-address-form-rows">
               <mat-form-field class="w-390" appearance="outline">
-                <input required matInput formControlName="email" placeholder="E-mail*">
+                <input
+                  matInput
+                  formControlName="street"
+                  placeholder="Strasse"
+                />
               </mat-form-field>
               <mat-form-field class="w-390" appearance="outline">
-                <input required matInput formControlName="phone" placeholder="Telefon*">
+                <input matInput formControlName="nr" placeholder="Nr" />
+              </mat-form-field>
+            </div>
+
+            <div class="stepper-5-address-form-rows">
+              <mat-form-field class="w-390" appearance="outline">
+                <input matInput formControlName="zipCode" placeholder="PLZ" />
+              </mat-form-field>
+              <mat-form-field class="w-390" appearance="outline">
+                <input matInput formControlName="city" placeholder="Ort" />
+              </mat-form-field>
+            </div>
+
+            <div class="stepper-5-address-form-rows">
+              <mat-form-field class="w-390" appearance="outline">
+                <input
+                  required
+                  matInput
+                  formControlName="email"
+                  placeholder="E-mail*"
+                />
+              </mat-form-field>
+              <mat-form-field class="w-390" appearance="outline">
+                <input
+                  required
+                  matInput
+                  formControlName="phone"
+                  placeholder="Telefon*"
+                />
               </mat-form-field>
             </div>
           </form>
         </mat-card>
-
       </ng-container>
     </div>
     <div>
-      <button *ngIf="stepper && stepper.selectedIndex !== 4" class="click-next mt-64" mat-button (click)="clickNext()">
+      <button
+        *ngIf="stepper && stepper.selectedIndex !== 4"
+        class="click-next mt-64"
+        mat-button
+        (click)="clickNext()"
+      >
         <span>Next step</span>
         <mat-icon>arrow_downward </mat-icon>
       </button>
-      <button *ngIf="stepper && stepper.selectedIndex === 4" 
-      mat-button class="submit-button mt-64" (click)="onSubmit()"
-      [disabled]="!(cycleInfoFormGroup.valid &&
-      servicePricingFormGroup.valid &&
-      individualPartServiceFormGroup.valid &&
-      cycleProblemDetailFormGroup.valid &&
-      addressFormGroup.valid)"
+      <button
+        *ngIf="stepper && stepper.selectedIndex === 4"
+        mat-button
+        class="submit-button mt-64"
+        (click)="onSubmit()"
+        [disabled]="
+          !(
+            cycleInfoFormGroup.valid &&
+            servicePricingFormGroup.valid &&
+            individualPartServiceFormGroup.valid &&
+            cycleProblemDetailFormGroup.valid &&
+            addressFormGroup.valid
+          )
+        "
       >
-        Servicedaten hochladen <br>und Angebote erhalten
+        Servicedaten hochladen <br />und Angebote erhalten
       </button>
     </div>
   </div>
-
 </div>

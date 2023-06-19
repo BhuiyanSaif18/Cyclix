@@ -14,15 +14,15 @@ import { CycleType } from 'src/models/CycleType';
 export class StepperComponent implements OnInit {
   @ViewChild(MatStepper) stepper!: MatStepper;
 
-  cycleTypeOptions : string[] = [];
-  brandOptions : string[] = [];
+  cycleTypeOptions: string[] = [];
+  brandOptions: string[] = [];
   cycleInfoFormGroup!: FormGroup;
   servicePricingFormGroup!: FormGroup;
   individualPartServiceFormGroup!: FormGroup;
   cycleProblemDetailFormGroup!: FormGroup;
   addressFormGroup!: FormGroup;
 
-  isSubmittable :boolean = false;
+  isSubmittable: boolean = false;
   subscriptions: Subscription[] = [];
 
   constructor(
@@ -63,13 +63,16 @@ export class StepperComponent implements OnInit {
     });
 
     this.cycleProblemDetailFormGroup = this.formBuilder.group({
-      moreDetailedIssue: ['',[Validators.required]],
-      estimatedCost: [0, [Validators.required, Validators.min(0), Validators.max(100000)]],
+      moreDetailedIssue: ['', [Validators.required]],
+      estimatedCost: [
+        0,
+        [Validators.required, Validators.min(0), Validators.max(100000)],
+      ],
     });
 
     this.addressFormGroup = this.formBuilder.group({
-      firstName: ['',[Validators.required]],
-      lastName: ['',[Validators.required]],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
       street: [''],
       nr: [''],
       city: [''],
@@ -92,14 +95,16 @@ export class StepperComponent implements OnInit {
   }
 
   onSubmit(): void {
-    let repairRequestModel : RepairRequestModel = {...this.cycleInfoFormGroup.value,
+    let repairRequestModel: RepairRequestModel = {
+      ...this.cycleInfoFormGroup.value,
       ...this.servicePricingFormGroup.value,
       ...this.individualPartServiceFormGroup.value,
       ...this.cycleProblemDetailFormGroup.value,
-      ...this.addressFormGroup.value
-    }
-    const sub = this.stepperService.saveRepairRequest(repairRequestModel).subscribe((x) => {
-    });
+      ...this.addressFormGroup.value,
+    };
+    const sub = this.stepperService
+      .saveRepairRequest(repairRequestModel)
+      .subscribe((x) => {});
     this.subscriptions.push(sub);
   }
   ngOnDestroy(): void {

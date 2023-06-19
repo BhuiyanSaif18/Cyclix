@@ -19,12 +19,4 @@ export class NavMenuComponent {
   onLanguageChange() {
     this.translateService.use(this.selectedLanguage);
   }
-
-  collapse() {
-    this.isExpanded = false;
-  }
-
-  toggle() {
-    this.isExpanded = !this.isExpanded;
-  }
 }
