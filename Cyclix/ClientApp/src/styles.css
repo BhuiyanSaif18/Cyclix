@@ -26,6 +26,9 @@
   font-family: "Cera Pro Regular Italic";
   src: url("/assets/fonts/Cera Pro Regular Italic.ttf") format("truetype");
 }
+html, body {
+  height: 100vh;
+}
 
 body {
   font-family: "Cera Pro Light", "Cera Pro Medium", "Cera Pro Regular Italic",
