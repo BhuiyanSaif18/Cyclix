@@ -22,6 +22,8 @@ namespace Cyclix.Controllers
         public IActionResult StoreRequst([FromBody] RepairRequestDto repairRequest)
         {
             var repairReq = _mapper.Map<RepairRequest>(repairRequest);
+            repairReq.createdAt = DateTime.Now;
+            repairReq.isResolved = false;
             _repairRequestRepository.SaveRequest(repairReq);
             return StatusCode(201);
         }
