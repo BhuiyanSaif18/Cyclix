@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { StepperService } from './stepper.service';
 import { RepairRequestModel } from 'src/models/RepairRequestMode';
 import { CycleType } from 'src/models/CycleType';
+import { phoneValidator } from '../common/phoneValidator';
 
 @Component({
   selector: 'app-stepper',
@@ -78,7 +79,7 @@ export class StepperComponent implements OnInit {
       city: [''],
       zipCode: [''],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required]],
+      phone: ['', [Validators.required, phoneValidator()]],
     });
   }
   getBikeBrands() {

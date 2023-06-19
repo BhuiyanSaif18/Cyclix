@@ -29,8 +29,10 @@ namespace Cyclix.DTOs
 
 
         [Required]
+        [MaxLength(1000)]
         public string moreDetailedIssue { get; set; }
         [Required]
+        [Range(0, 100000)]
         public double estimatedCost { get; set; }
 
 
@@ -43,8 +45,10 @@ namespace Cyclix.DTOs
         public string city { get; set; }
         public string zipCode { get; set; }
         [Required]
+        [EmailAddress]
         public string email { get; set; }
         [Required]
+        [Phone]
         public string phone { get; set; }
     }
 }
