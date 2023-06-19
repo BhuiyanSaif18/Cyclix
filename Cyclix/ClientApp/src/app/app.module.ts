@@ -25,6 +25,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { MatIconModule } from '@angular/material/icon';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { FooterComponent } from './footer/footer.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -37,7 +38,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    StepperComponent
+    StepperComponent,
+    FooterComponent
   ],
   imports: [
     BrowserAnimationsModule,

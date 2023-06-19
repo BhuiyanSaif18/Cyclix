@@ -31,6 +31,7 @@
 body {
   font-family:  'Cera Pro Light', 'Cera Pro Medium', 'Cera Pro Regular Italic', 'Cera Pro Black Italic', 'Cera Pro Black', 'Cera Pro Bold';
   height: 100vh;
+  /* overflow: hidden; */
 }
 
 a {
