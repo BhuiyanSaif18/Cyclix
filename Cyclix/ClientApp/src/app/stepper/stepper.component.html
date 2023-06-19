@@ -30,9 +30,9 @@
             <span class="warning-message">{{ 'FIELDS_MARKED_WITH_ARE_REQUIRED' | translate}}</span>
             <form class="stepper-1-form" [formGroup]="cycleInfoFormGroup">
               <div>
-                <p class="label-text">{{'DO_YOU_KNOW_YOUR_BIKE_TYPE' | translate}}</p>
+                <p class="label-text">{{'DO_YOU_KNOW_YOUR_BIKE_TYPE' | translate}}*</p>
                 <mat-form-field>
-                  <mat-select required required formControlName="cycleType">
+                  <mat-select required formControlName="cycleType">
                     <mat-option *ngFor="let option of cycleTypeOptions" [value]="option">{{option}}</mat-option>
                   </mat-select>
                   <!-- <mat-icon>
@@ -43,8 +43,8 @@
                 </mat-form-field>
               </div>
               <div>
-                <p class="label-text">{{'WHAT_BRAND_IS_YOUR_BIKE' | translate}}</p>
-                <mat-form-field>
+                <p class="label-text">{{'WHAT_BRAND_IS_YOUR_BIKE' | translate}}*</p>
+                <mat-form-field >
                   <mat-select required formControlName="brandName">
                     <mat-option *ngFor="let option of brandOptions" [value]="option">{{option}}</mat-option>
                   </mat-select>
@@ -90,7 +90,7 @@
             </mat-radio-group>
             <div>
               <mat-checkbox class="info-text" formControlName="skipServicePackage">Kein Service Paket buchen</mat-checkbox>
-              <mat-checkbox required formControlName="isElectricCycle">Hat dein Velo einen Elektro Antrieb?</mat-checkbox>
+              <mat-checkbox formControlName="isElectricCycle">Hat dein Velo einen Elektro Antrieb?</mat-checkbox>
             </div>
           </form>
         </mat-card>
@@ -135,7 +135,7 @@
 
         <mat-card class="stepper-4-parent mat-card-generic">
           <span class="stepper-4-address-info mb-24">Möchtest du das Problem an deinem Velo noch näher
-            beschreiben?</span>
+            beschreiben?*</span>
           <form [formGroup]="cycleProblemDetailFormGroup">
             <mat-form-field appearance="outline" class="w-100-p">
               <textarea rows="7" required matInput formControlName="moreDetailedIssue"
@@ -143,9 +143,9 @@
             </mat-form-field>
             <div>
               <mat-form-field appearance="outline">
-                <input required matInput formControlName="estimatedCost">
+                <input required type="number" matInput formControlName="estimatedCost">
               </mat-form-field>
-              <span class="stepper-4-bottom-text">Hast du ein Kostendach?</span>
+              <span class="stepper-4-bottom-text">Hast du ein Kostendach?*</span>
             </div>
           </form>
         </mat-card>
@@ -157,11 +157,11 @@
           <span class="stepper-5-address-info mb-24">Sag uns noch kurz etwas über dich:</span>
           <form class="stepper-5-address-form" [formGroup]="addressFormGroup">
             <div class="stepper-5-address-form-rows">
-              <mat-form-field class="w-50-p" appearance="outline">
-                <input required matInput formControlName="firstName" placeholder="Vorname" >
+              <mat-form-field required class="w-50-p" appearance="outline">
+                <input  matInput formControlName="firstName" placeholder="Vorname*" >
               </mat-form-field>
               <mat-form-field class="w-50-p" appearance="outline">
-                <input required matInput formControlName="lastName" placeholder="Nachname">
+                <input required matInput formControlName="lastName" placeholder="Nachname*">
               </mat-form-field>
             </div>
 
@@ -185,10 +185,10 @@
 
             <div class="stepper-5-address-form-rows">
               <mat-form-field class="w-50-p" appearance="outline">
-                <input required matInput formControlName="email" placeholder="E-mail">
+                <input required matInput formControlName="email" placeholder="E-mail*">
               </mat-form-field>
               <mat-form-field class="w-50-p" appearance="outline">
-                <input required matInput formControlName="phone" placeholder="Telefon">
+                <input required matInput formControlName="phone" placeholder="Telefon*">
               </mat-form-field>
             </div>
           </form>
@@ -201,7 +201,14 @@
         <span>Next step</span>
         <mat-icon>arrow_downward </mat-icon>
       </button>
-      <button *ngIf="stepper && stepper.selectedIndex === 4" mat-button class="submit-button mt-100" (click)="onSubmit()">
+      <button *ngIf="stepper && stepper.selectedIndex === 4" 
+      mat-button class="submit-button mt-100" (click)="onSubmit()"
+      [disabled]="!(cycleInfoFormGroup.valid &&
+      servicePricingFormGroup.valid &&
+      individualPartServiceFormGroup.valid &&
+      cycleProblemDetailFormGroup.valid &&
+      addressFormGroup.valid)"
+      >
         Servicedaten hochladen <br>und Angebote erhalten
       </button>
     </div>

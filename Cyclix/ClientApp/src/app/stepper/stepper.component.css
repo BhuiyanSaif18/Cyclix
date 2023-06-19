@@ -17,7 +17,8 @@
 }
 
 .repair-request-steps {
-  .mat-step-header.cdk-program-focused:hover{
+
+  .mat-step-header{
     background-color: rgba(0, 0, 0, 0);
   }
   
@@ -32,7 +33,9 @@
   .mat-stepper-vertical-line::before {
     top: -24px;
     bottom: -24px;
+    left: -1px;
     background-color: #FF5E3A;
+    border-left-width : 2px;
   }
   
 }

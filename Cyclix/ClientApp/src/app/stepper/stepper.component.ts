@@ -22,6 +22,7 @@ export class StepperComponent implements OnInit {
   cycleProblemDetailFormGroup!: FormGroup;
   addressFormGroup!: FormGroup;
 
+  isSubmittable :boolean = false;
   subscriptions: Subscription[] = [];
 
   constructor(
@@ -44,7 +45,7 @@ export class StepperComponent implements OnInit {
     this.servicePricingFormGroup = this.formBuilder.group({
       servicePricingOption: [''],
       skipServicePackage: [false],
-      isElectricCycle: [false, [Validators.required]],
+      isElectricCycle: [false],
     });
 
     this.individualPartServiceFormGroup = this.formBuilder.group({
@@ -63,7 +64,7 @@ export class StepperComponent implements OnInit {
 
     this.cycleProblemDetailFormGroup = this.formBuilder.group({
       moreDetailedIssue: ['',[Validators.required]],
-      estimatedCost: ['', [Validators.required]],
+      estimatedCost: [0, [Validators.required, Validators.min(0), Validators.max(100000)]],
     });
 
     this.addressFormGroup = this.formBuilder.group({
@@ -91,39 +92,15 @@ export class StepperComponent implements OnInit {
   }
 
   onSubmit(): void {
-    if (
-      this.cycleInfoFormGroup.valid &&
-      this.servicePricingFormGroup.valid &&
-      this.individualPartServiceFormGroup.valid &&
-      this.cycleProblemDetailFormGroup.valid &&
-      this.addressFormGroup.valid
-    ) {
-      console.log('Form submitted!');
-      console.log('cycleInfoFormGroup values:', this.cycleInfoFormGroup.value);
-      console.log(
-        'servicePricingFormGroup values:',
-        this.servicePricingFormGroup.value
-      );
-      console.log(
-        'individualPartServiceFormGroup values:',
-        this.individualPartServiceFormGroup.value
-      );
-      console.log(
-        'cycleProblemDetailFormGroup values:',
-        this.cycleProblemDetailFormGroup.value
-      );
-      console.log('Address form values:', this.addressFormGroup.value);
-      let repairRequestModel : RepairRequestModel = {...this.cycleInfoFormGroup.value,
-        ...this.servicePricingFormGroup.value,
-        ...this.individualPartServiceFormGroup.value,
-        ...this.cycleProblemDetailFormGroup.value,
-        ...this.addressFormGroup.value
-      }
-      const sub = this.stepperService.saveRepairRequest(repairRequestModel).subscribe((x) => {
-        console.log(x);
-      });
-      this.subscriptions.push(sub);
+    let repairRequestModel : RepairRequestModel = {...this.cycleInfoFormGroup.value,
+      ...this.servicePricingFormGroup.value,
+      ...this.individualPartServiceFormGroup.value,
+      ...this.cycleProblemDetailFormGroup.value,
+      ...this.addressFormGroup.value
     }
+    const sub = this.stepperService.saveRepairRequest(repairRequestModel).subscribe((x) => {
+    });
+    this.subscriptions.push(sub);
   }
   ngOnDestroy(): void {
     for (const subscription of this.subscriptions) {
