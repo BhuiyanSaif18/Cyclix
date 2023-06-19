@@ -44,6 +44,8 @@
   padding: 50px 65px;
   background: #f7f4f3;
   border-radius: 15px;
+  box-shadow: 0px 0px 0px 0px;
+  --mdc-elevated-card-container-color: #fff;
 }
 
 .stepper-1-parent {
@@ -343,6 +345,22 @@
 }
 .mb-40 {
   margin-bottom: 40px;
+}
+
+.next-step{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.downward-icon{
+  position: relative;
+  top: -6px;
+  font-size: 36px;
+  height: 40px;
+  width: 40px;
 }
 
 .click-next {
