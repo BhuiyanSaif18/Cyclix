@@ -6,6 +6,9 @@ namespace Cyclix.Entities
     {
         [Key]
         public int id{ get; set; }
+
+        public DateTime createdAt { get; set; }
+        public bool isResolved { get; set; }
         public string cycleType { get; set; }
         public string brandName { get; set; }
 
