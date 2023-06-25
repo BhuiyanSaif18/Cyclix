@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { CycleBrand } from 'src/models/CycleBrand';
@@ -21,8 +21,10 @@ export class StepperService {
     //     { name: 'Scott' }
     //   ]);
   }
-  getBikeType(): Observable<CycleType[]> {
-    return this.http.get<CycleType[]>(this.baseUrl + 'cycletype');
+  getBikeType(lang : string): Observable<CycleType[]> {
+    let params = new HttpParams();
+    params = params.append('lang', lang)
+    return this.http.get<CycleType[]>(this.baseUrl + 'cycletype', {params : params});
     // return of(
     //   [
     //     { name: 'Rennvelo' }, 

@@ -17,5 +17,11 @@ namespace Cyclix.DAL
             var cycleTypes = await _context.CycleTypes.ToListAsync();
             return cycleTypes;
         }
+
+        public async Task<List<CycleType>> GetCycleTypesLang(string lang)
+        {
+            var cycleTypes = await _context.CycleTypes.Where(x=> x.lang == lang).ToListAsync();
+            return cycleTypes;
+        }
     }
 }

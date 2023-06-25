@@ -15,9 +15,9 @@ namespace Cyclix.Controllers
             _cycleTypeRepository = cycleTypeRepository;
         }
         [HttpGet]
-        public async Task<List<CycleType>> Get()
+        public async Task<List<CycleType>> Get([FromQuery] string lang)
         {
-            return await _cycleTypeRepository.GetCycleTypes();
+            return await _cycleTypeRepository.GetCycleTypesLang(lang);
         }
     }
 }

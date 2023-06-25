@@ -7,5 +7,6 @@ namespace Cyclix.Models
         [Key]
         public int Id { get; set; }
         public string name { get; set; }
+        public string lang { get; set; }
     }
 }

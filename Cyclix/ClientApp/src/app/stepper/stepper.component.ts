@@ -6,6 +6,7 @@ import { StepperService } from './stepper.service';
 import { RepairRequestModel } from 'src/models/RepairRequestMode';
 import { CycleType } from 'src/models/CycleType';
 import { phoneValidator } from '../common/phoneValidator';
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-stepper',
@@ -28,7 +29,8 @@ export class StepperComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private stepperService: StepperService
+    private stepperService: StepperService,
+    private translateService: TranslateService
   ) {}
 
   clickNext(): void {
@@ -36,8 +38,11 @@ export class StepperComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getBikeType();
+    this.getBikeType(this.translateService.currentLang);
     this.getBikeBrands();
+    this.translateService.onLangChange.subscribe((event: LangChangeEvent) => {
+      this.getBikeType(event.lang);
+    });
     this.cycleInfoFormGroup = this.formBuilder.group({
       cycleType: ['', [Validators.required]],
       brandName: ['', [Validators.required]],
@@ -88,8 +93,8 @@ export class StepperComponent implements OnInit {
     });
     this.subscriptions.push(sub);
   }
-  getBikeType() {
-    const sub = this.stepperService.getBikeType().subscribe((x) => {
+  getBikeType( lang : string) {
+    const sub = this.stepperService.getBikeType(lang).subscribe((x) => {
       this.cycleTypeOptions = x.map((x) => x.name);
     });
     this.subscriptions.push(sub);
